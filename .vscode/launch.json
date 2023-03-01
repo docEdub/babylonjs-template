@@ -10,13 +10,14 @@
             "type": "chrome",
             "runtimeArgs": [
                 // "--auto-open-devtools-for-tabs",
-                "-incognito"
+                // "-incognito"
             ],
-            "url": "https://localhost:8080",
+            "url": "https://localhost",
             "webRoot": "${workspaceFolder}/dist",
             "sourceMapPathOverrides": {
                 "webpack://*": "${workspaceFolder}/*",
-            }
+            },
+            "preLaunchTask": "npm start"
         }
     ]
 }

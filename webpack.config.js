@@ -2,6 +2,7 @@ const path = require("path");
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const appDirectory = fs.realpathSync(process.cwd());
 
 module.exports = {
@@ -15,12 +16,18 @@ module.exports = {
     },
     devServer: {
         host: '0.0.0.0',
-        port: 8080,
+        port: 443,
         static: path.resolve(appDirectory, "public"),
         hot: false,
         server: "https"
     },
     devtool: "inline-source-map",
+    externals: {
+        "babylonjs": "BABYLON"
+    },
+    // infrastructureLogging: {
+	// 	level: 'log',
+	// },
     module: {
         rules: [
             {

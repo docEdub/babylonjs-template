@@ -1,16 +1,16 @@
-import { Engine } from "@babylonjs/core"
-import { Main } from "./main"
+import * as BABYLON from "babylonjs";
+import { Playground } from "./playground";
 
 (() => {
-    const canvas = <HTMLCanvasElement>document.getElementById("MainCanvas");
-    const engine = new Engine(canvas, true);
-    const main = new Main(engine);
+    const canvas = <HTMLCanvasElement> document.getElementById("MainCanvas");
+    const engine = new BABYLON.Engine(canvas, true);
+    const scene = Playground.CreateScene(engine, canvas);
 
-    window.addEventListener('resize', function() {
-        engine.resize()
-    })
+    window.addEventListener('resize', () => {
+        engine.resize();
+    });
 
     engine.runRenderLoop(() => {
-       main.render()
-    })
-})()
+       scene.render();
+    });
+})();
