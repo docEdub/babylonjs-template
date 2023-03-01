@@ -1,10 +1,1 @@
-npm i -D babylonjs
-npm i -D clean-webpack-plugin
-npm i -D html-loader
-npm i -D html-webpack-plugin
-npm i -D source-map-loader
-npm i -D ts-loader
-npm i -D typescript
-npm i -D webpack
-npm i -D webpack-cli
-npm i -D webpack-dev-server
+npm i -D babylonjs clean-webpack-plugin html-loader html-webpack-plugin source-map-loader ts-loader typescript webpack webpack-cli webpack-dev-server
