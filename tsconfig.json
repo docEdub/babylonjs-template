@@ -1,7 +1,9 @@
 {
     "compilerOptions": {
+        "forceConsistentCasingInFileNames": true,
         "target": "es6",
         "module": "commonjs",
+        "moduleResolution": "node",
         "noResolve": false,
         "noImplicitAny": false,
         "sourceMap": true,
@@ -10,6 +12,11 @@
             "dom",
             "es6"
         ],
-        "rootDir": "src"
+        "rootDir": "src",
+        "strict": true,
+        "types": [
+            "babylonjs",
+            "babylonjs-gui"
+        ]
     },
 }

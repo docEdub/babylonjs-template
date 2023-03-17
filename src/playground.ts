@@ -1,5 +1,3 @@
-import * as BABYLON from "babylonjs"
-
 export
 
 //#region Playground copy/paste code ...
