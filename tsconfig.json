@@ -1,22 +1,22 @@
 {
     "compilerOptions": {
         "forceConsistentCasingInFileNames": true,
-        "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
-        "noResolve": false,
         "noImplicitAny": false,
-        "sourceMap": true,
-        "preserveConstEnums": true,
+        "noResolve": false,
         "lib": [
             "dom",
             "es6"
         ],
+        "preserveConstEnums": true,
         "rootDir": "src",
+        "sourceMap": true,
         "strict": true,
+        "target": "es6",
         "types": [
             "babylonjs",
             "babylonjs-gui"
         ]
-    },
+    }
 }
