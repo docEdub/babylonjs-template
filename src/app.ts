@@ -1,7 +1,7 @@
 import { Playground } from "./playground";
 
 (() => {
-    const canvas = <HTMLCanvasElement> document.getElementById("MainCanvas");
+    const canvas = <HTMLCanvasElement> document.getElementById("renderCanvas");
     const engine = new BABYLON.Engine(canvas, true);
     const scene = Playground.CreateScene(engine, canvas);
 
@@ -10,6 +10,6 @@ import { Playground } from "./playground";
     });
 
     engine.runRenderLoop(() => {
-       scene.render();
+       scene.render(true);
     });
 })();

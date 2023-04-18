@@ -3,6 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+                background-color: black;
+            }
+            
             .disable-selection {
                 -moz-user-select: none;
                 -ms-user-select: none;
@@ -28,16 +34,24 @@
                 font-weight: bold;
             }
 
-            #MainCanvas {
+            #canvasZone {
                 position: absolute; left: 0; top: 0; width: 100%; height: 100%;
                 background: rgba(0, 0, 0, 0);
             }
+
+            #renderCanvas {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
         </style>
         <script src="https://cdn.babylonjs.com/babylon.max.js"></script>
-        <script src="https://cdn.babylonjs.com/gui/babylon.gui.js"></script>
+        <!--script src="https://cdn.babylonjs.com/gui/babylon.gui.js"></script-->
     </head>
     <body>
         <div id="Loading">Loading ...</div>
-        <canvas id="MainCanvas" class="disable-selection"></canvas>
+        <div id="canvasZone">
+            <canvas id="renderCanvas" class="disable-selection"></canvas>
+        </div>
     </body>
 </html>
