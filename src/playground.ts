@@ -32,7 +32,7 @@ class Playground {
         var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
 
         // Setup GUI.
-        const loadGui = () => {
+        const initGui = () => {
             let canvasZone = document.getElementById("canvasZone")!;
             canvasZone.style.position = "relative";
 
@@ -60,13 +60,13 @@ class Playground {
             cameraGui.open();
         }
         if (document.getElementById("datGuiScript")) {
-            loadGui();
+            initGui();
         } else {
             const datGuiScript = document.createElement<"script">("script");
             datGuiScript.id = "datGuiScript";
             datGuiScript.src = "https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js";
             datGuiScript.onload = () => {
-                loadGui();
+                initGui();
             };
             document.body.appendChild(datGuiScript);
         }
