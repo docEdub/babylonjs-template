@@ -31,8 +31,50 @@ class Playground {
         // Our built-in 'ground' shape. Params: name, options, scene
         var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
 
+        // Setup GUI.
+        const loadGui = () => {
+            let canvasZone = document.getElementById("canvasZone")!;
+            canvasZone.style.position = "relative";
+
+            const previousGuis = canvasZone.getElementsByClassName("dg main");
+            for (let i = 0; i < previousGuis.length; i++) {
+                canvasZone.removeChild(previousGuis[i]);
+            }
+
+            const gui = new dat.GUI({ autoPlace: false });
+            canvasZone.appendChild(gui.domElement);
+            gui.domElement.style.position = "absolute";
+            gui.domElement.style.top = "0";
+            gui.domElement.style.right = "0";
+
+            // Hack to force dat.gui to use floats for the gui instead of integers.
+            // NB: The gui rounds the text off to the nearest step value given in the `add` functions.
+            camera.position.x += 0.0001;
+            camera.position.y += 0.0001;
+            camera.position.z += 0.0001;
+
+            const cameraGui = gui.addFolder("camera");
+            cameraGui.add(camera.position, "x", -10, 10, 0.01);
+            cameraGui.add(camera.position, "y", -10, 10, 0.01);
+            cameraGui.add(camera.position, "z", -50, -5, 0.01);
+            cameraGui.open();
+        }
+        if (document.getElementById("datGuiScript")) {
+            loadGui();
+        } else {
+            const datGuiScript = document.createElement<"script">("script");
+            datGuiScript.id = "datGuiScript";
+            datGuiScript.src = "https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js";
+            datGuiScript.onload = () => {
+                loadGui();
+            };
+            document.body.appendChild(datGuiScript);
+        }
+
         return scene;
     }
 }
+
+declare var dat: any;
 
 //#endregion
