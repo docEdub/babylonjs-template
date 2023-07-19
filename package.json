@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "bootstrap": "bootstrap.bat || cp ./bootstrap.bat ./bootstrap.sh && chmod +x bootstrap.sh && ./bootstrap.sh",
+    "bootstrap": "npm run bootstrap-script && git reset --hard ad9ccb09 && git commit --amend -m \"Bootstrap babylonjs-template\"",
+    "bootstrap-script": "bootstrap.bat || cp ./bootstrap.bat ./bootstrap.sh && chmod +x bootstrap.sh && ./bootstrap.sh",
     "build": "webpack",
     "start": "webpack serve"
   }
