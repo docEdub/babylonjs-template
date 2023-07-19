@@ -1,8 +1,8 @@
 {
   "scripts": {
     "bootstrap": "npm run bootstrap:script && npm run bootstrap:git && npm run bootstrap:cleanup",
-    "bootstrap:cleanup": "npm pkg delete scripts.bootstrap scripts.bootstrap:cleanup scripts.bootstrap:git scripts.bootstrap:script",
-    "bootstrap:git": "git reset ad9ccb09 && git commit --amend -m \"Bootstrap babylonjs-template\" && git checkout -b main && git branch -D bootstrap",
+    "bootstrap:cleanup": "npm pkg delete scripts.bootstrap scripts.bootstrap:cleanup scripts.bootstrap:git scripts.bootstrap:script && git add . && git commit --amend -m\"Bootstrap babylonjs-template\"",
+    "bootstrap:git": "git reset ad9ccb09 && git add . && git commit --amend -m\".\" && git checkout -b main && git branch -D bootstrap",
     "bootstrap:script": "bootstrap.bat || cp ./bootstrap.bat ./bootstrap.sh && chmod +x bootstrap.sh && ./bootstrap.sh",
     "build": "webpack",
     "start": "webpack serve"
