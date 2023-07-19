@@ -1,6 +1,3 @@
-export
-
-//#region Playground copy/paste code ...
 
 class Playground {
     public static CreateScene(engine: BABYLON.Engine, canvas: HTMLCanvasElement): BABYLON.Scene {
@@ -65,4 +62,6 @@ class Playground {
 
 declare var dat: any;
 
-//#endregion
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export { Playground };
