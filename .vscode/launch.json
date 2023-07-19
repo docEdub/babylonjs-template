@@ -10,7 +10,8 @@
             "type": "chrome",
             "runtimeArgs": [
                 // "--auto-open-devtools-for-tabs",
-                // "-incognito"
+                // "-incognito",
+                "--test-type" // turns off security warnings
             ],
             "url": "https://localhost",
             "webRoot": "${workspaceFolder}/dist",
