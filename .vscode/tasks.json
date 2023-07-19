@@ -23,6 +23,7 @@
             "runOptions": {
                 "instanceLimit": 1
             },
+            "problemMatcher": "$ts-webpack-watch",
             "presentation": {
                 "group": "serve"
             }
