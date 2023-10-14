@@ -43,15 +43,13 @@ class Playground {
 
         const cameraGui = gui.addFolder("camera");
         cameraGui.add(camera, "alpha", -Math.PI, Math.PI, 0.01).listen();
-        cameraGui.add(camera, "beta", -Math.PI, Math.PI, 0.01).listen();
+        cameraGui.add(camera, "beta", 0.01, Math.PI - 0.01, 0.01).listen();
         cameraGui.add(camera, "radius", 5, 100, 0.01).listen();
         cameraGui.open();
 
         camera.onViewMatrixChangedObservable.add(() => {
             while (camera.alpha < -Math.PI) camera.alpha += 2 * Math.PI;
             while (Math.PI < camera.alpha) camera.alpha -= 2 * Math.PI;
-            while (camera.beta < -Math.PI) camera.beta += 2 * Math.PI;
-            while (Math.PI < camera.beta) camera.beta -= 2 * Math.PI;
             camera.radius = Math.min(Math.max(5, camera.radius), 100);
         });
 
