@@ -1,6 +1,9 @@
-const path = require("path");
 const fs = require('fs');
+const path = require("path");
+
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const appDirectory = fs.realpathSync(process.cwd());
@@ -43,6 +46,14 @@ module.exports = {
         ]
     },
     plugins: [
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: "node_modules/babylon*/babylon*.js", to: "js/[name].js" },
+                { from: "node_modules/babylon*/babylon*.map", to: "js/[name].map" },
+                { from: path.resolve("public/js/dat.gui.0.6.2.min.js"), to: "js" },
+                path.resolve("public/favicon.png"),
+            ]
+        }),
         new HtmlWebpackPlugin({
             inject: true,
             template: path.resolve(appDirectory, "public/index.html")

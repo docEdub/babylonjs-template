@@ -4,11 +4,8 @@ class Playground {
         // This creates a basic Babylon Scene object (non-mesh)
         var scene = new BABYLON.Scene(engine);
 
-        // This creates and positions a free camera (non-mesh)
-        var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
-
-        // This targets the camera to scene origin
-        camera.setTarget(BABYLON.Vector3.Zero());
+        // This creates and positions an arc-rotate camera (non-mesh)
+        var camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 2, Math.PI / 2.5, 10, BABYLON.Vector3.Zero(), scene);
 
         // This attaches the camera to the canvas
         camera.attachControl(canvas, true);
@@ -44,17 +41,19 @@ class Playground {
         gui.domElement.style.top = "0";
         gui.domElement.style.right = "0";
 
-        // Hack to force dat.gui to use floats for the gui instead of integers.
-        // NB: The gui rounds the text off to the nearest step value given in the `add` functions.
-        camera.position.x += 0.0001;
-        camera.position.y += 0.0001;
-        camera.position.z += 0.0001;
-
         const cameraGui = gui.addFolder("camera");
-        cameraGui.add(camera.position, "x", -10, 10, 0.01);
-        cameraGui.add(camera.position, "y", -10, 10, 0.01);
-        cameraGui.add(camera.position, "z", -50, -5, 0.01);
+        cameraGui.add(camera, "alpha", -Math.PI, Math.PI, 0.01).listen();
+        cameraGui.add(camera, "beta", -Math.PI, Math.PI, 0.01).listen();
+        cameraGui.add(camera, "radius", 5, 100, 0.01).listen();
         cameraGui.open();
+
+        camera.onViewMatrixChangedObservable.add(() => {
+            while (camera.alpha < -Math.PI) camera.alpha += 2 * Math.PI;
+            while (Math.PI < camera.alpha) camera.alpha -= 2 * Math.PI;
+            while (camera.beta < -Math.PI) camera.beta += 2 * Math.PI;
+            while (Math.PI < camera.beta) camera.beta -= 2 * Math.PI;
+            camera.radius = Math.min(Math.max(5, camera.radius), 100);
+        });
 
         return scene;
     }
