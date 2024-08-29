@@ -51,7 +51,6 @@ module.exports = {
         { from: "node_modules/babylon*/babylon*.js", to: "js/[name].js" },
         { from: "node_modules/babylon*/babylon*.map", to: "js/[name].map" },
         { from: path.resolve("public/js/dat.gui.0.6.2.min.js"), to: "js" },
-        path.resolve("public/favicon.png"),
       ],
     }),
     new HtmlWebpackPlugin({
