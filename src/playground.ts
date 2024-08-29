@@ -38,7 +38,7 @@ class Playground {
         gui.domElement.id = "datGui";
         gui.domElement.style.position = "absolute";
         gui.domElement.style.top = "0";
-        gui.domElement.style.left = "0";
+        gui.domElement.style.right = "0";
 
         const cameraGui = gui.addFolder("camera");
         cameraGui.add(camera, "alpha", -Math.PI, Math.PI, 0.01).listen();
