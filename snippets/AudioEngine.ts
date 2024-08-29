@@ -1,4 +1,3 @@
-
 class AudioEngine {
     static get CurrentTime() {
         return BABYLON.Engine.audioEngine!.audioContext!.currentTime;

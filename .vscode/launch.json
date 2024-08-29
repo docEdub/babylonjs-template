@@ -16,7 +16,7 @@
             "url": "http://localhost",
             "webRoot": "${workspaceFolder}/dist",
             "sourceMapPathOverrides": {
-                "webpack://*": "${workspaceFolder}/*",
+                "webpack://*": "${workspaceFolder}/*"
             },
             "preLaunchTask": "npm start"
         }
