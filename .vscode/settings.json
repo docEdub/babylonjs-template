@@ -1,7 +1,4 @@
 {
-    "files.exclude": {
-        "**/..js-midi-scripts/node_modules": true
-    },
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
