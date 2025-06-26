@@ -1,9 +1,11 @@
 {
     "scripts": {
         "bootstrap": "npm run bootstrap:script && npm run bootstrap:git && npm run bootstrap:cleanup",
-        "bootstrap:cleanup": "npm pkg delete scripts.bootstrap scripts.bootstrap:cleanup scripts.bootstrap:git scripts.bootstrap:script && git add . && git commit --amend -m\"Bootstrap babylonjs-template\"",
+        "bootstrap:cleanup": "npm pkg delete scripts.bootstrap scripts.bootstrap:windows scripts.bootstrap:unix scripts.bootstrap:cleanup scripts.bootstrap:git scripts.bootstrap:script && git add . && git commit --amend -m\"Bootstrap babylonjs-template\"",
         "bootstrap:git": "git reset ad9ccb09 && git add . && git commit --amend -m\".\" && git checkout -b main && git branch -D bootstrap",
-        "bootstrap:script": "bootstrap.bat || cp ./bootstrap.bat ./bootstrap.sh && chmod +x bootstrap.sh && ./bootstrap.sh",
+        "bootstrap:script": "node -e \"process.platform === 'win32' ? require('child_process').execSync('npm run bootstrap:windows', {stdio: 'inherit'}) : require('child_process').execSync('npm run bootstrap:unix', {stdio: 'inherit'})\"",
+        "bootstrap:unix": "cp ./bootstrap.bat ./bootstrap.sh && chmod +x bootstrap.sh && ./bootstrap.sh",
+        "bootstrap:windows": "bootstrap.bat",
         "build": "webpack",
         "start": "webpack serve"
     }
