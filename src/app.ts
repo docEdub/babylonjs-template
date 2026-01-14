@@ -1,4 +1,5 @@
-import { Playground } from "./playground-with-datgui";
+import { Playground } from "./playground";
+// import { Playground } from "./playground-with-datgui";
 
 (() => {
     const canvas = <HTMLCanvasElement>document.getElementById("renderCanvas");
